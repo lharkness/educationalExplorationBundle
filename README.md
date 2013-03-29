@@ -1,5 +1,5 @@
-eEucational Exploration Bundle
+Educational Exploration Bundle
 ============================
 
-code from various educational excercises. 
+code from various educational exercises. 
 Data Structures & Algorithms in Java, Second Edition - Lafore
