@@ -1,4 +1,4 @@
-educationalExplorationBundle
+eEucational Exploration Bundle
 ============================
 
 code from various educational excercises. 
