@@ -1,0 +1,26 @@
+<project name="datastructures" default="run" basedir=".">
+    <description>
+        builds and runs the datastructures code
+    </description>
+  
+	<target name="compile">
+		<javac srcdir="datastructures"
+				includeantruntime="false"
+		      	destdir="build"
+				classpath="junit.jar"
+				debug="on"
+		      	fork="true"
+		       	source="1.6"
+		     	target="1.6"
+		  />
+	</target>
+	
+	<target name="run">
+		<java classname="datastructures.arrays.AllTests" fork="true">
+			<classpath>
+				<pathelement location="build"/>
+			    	<pathelement path="junit.jar"/>
+			  	</classpath>
+		</java>
+	</target>
+</project>
