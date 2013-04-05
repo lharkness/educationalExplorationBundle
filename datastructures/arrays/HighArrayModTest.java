@@ -102,4 +102,48 @@ public class HighArrayModTest {
 		assertTrue(!target.contains(101));
 	}
 	
+	@Test
+	public void testThatCopyConstructorWorkdAsExpected() {
+		HighArrayMod original = new HighArrayMod(target);
+		
+		for (int i = 0; i < target.size(); i++) {
+			assertTrue(original.get(i) == target.get(i));
+		}
+	}
+	
+	
+	@Test
+	public void testThatRemoveDupsWorksWithAnArrayWithNoDups() {
+		HighArrayMod original = new HighArrayMod(target);
+		target.removeDups();
+		
+		for (int i = 0; i < target.size(); i++) {
+			assertTrue(original.get(i) == target.get(i));
+		}
+	}
+	
+	@Test
+	public void testThatRemoveDupsDoesInFactRemoveDups() {
+		HighArrayMod arrayWithDups = new HighArrayMod(11);
+		arrayWithDups.insert(1);
+		arrayWithDups.insert(2);
+		arrayWithDups.insert(1);
+		arrayWithDups.insert(3);
+		arrayWithDups.insert(4);
+		arrayWithDups.insert(5);
+		arrayWithDups.insert(3);
+		arrayWithDups.insert(4);
+		arrayWithDups.insert(5);
+		arrayWithDups.insert(1);
+		
+		arrayWithDups.removeDups();
+		
+		System.out.println(arrayWithDups.size());
+		System.out.println(arrayWithDups);
+		
+		assertTrue(arrayWithDups.size() == 5);
+		
+	}
+	
+	
 }

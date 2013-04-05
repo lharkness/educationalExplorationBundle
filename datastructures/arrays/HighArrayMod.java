@@ -9,6 +9,13 @@ public class HighArrayMod {
 		numberOfElements = 0;
 	}
 	
+	public HighArrayMod(HighArrayMod toCopy) {
+		data = new long[toCopy.size()];
+		for (int i = 0; i < toCopy.size(); i++) {
+			data[i] = toCopy.get(i);
+		}
+	}
+	
 	public boolean contains(long key) {
 		for (long item : data) {
 			if (item == key) {
@@ -74,6 +81,23 @@ public class HighArrayMod {
 		return numberOfElements;
 	}
 	
+	public long get(int index) {
+		return data[index];
+	}
+	
+	public synchronized void removeDups() {
+		HighArrayMod usedElements = new HighArrayMod(this.data.length);
+		
+		for (int i = 0; i < this.size(); i++) {
+			if (!usedElements.contains(this.get(i))) {
+				usedElements.insert(this.get(i));
+			}
+		}
+		
+		this.data = usedElements.data;
+		this.numberOfElements = usedElements.numberOfElements;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -82,5 +106,20 @@ public class HighArrayMod {
 		}
 		
 		return sb.toString();
+	}
+	
+	public static void main(String[] args) {
+		HighArrayMod array = new HighArrayMod(10);
+		array.insert(1);
+		array.insert(2);
+		array.insert(3);
+		array.insert(4);
+		array.insert(5);
+		array.insert(1);
+		
+		array.removeDups();
+		
+		System.out.println(array);
+		
 	}
 }
