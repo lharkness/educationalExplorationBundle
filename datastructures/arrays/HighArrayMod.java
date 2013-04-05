@@ -70,6 +70,10 @@ public class HighArrayMod {
 		delete(maxValue);
 	}
 	
+	public int size() {
+		return numberOfElements;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
